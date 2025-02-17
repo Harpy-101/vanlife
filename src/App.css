@@ -1,11 +1,24 @@
-*,
-*::before,
-*::after {
+*{
   box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF7ED;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 #root {
-  max-width: 1920px;
+  /* max-width: 1920px; */
   margin: 0 auto;
   text-align: center;
 }
@@ -33,6 +46,11 @@
   text-decoration: none;
 }
 
+.nav-container a:hover {
+  color: #161616;
+  text-decoration: underline;
+}
+
 #vanlife-link {
   font-size: 2em;
   color: #000000;
@@ -41,23 +59,33 @@
 
 .links-container > a{
   color: #4D4D4D;
-  font-size: 1.4em;
 }
 
 /* Home page */
 
 .hero {
-  background-image: url("./assets/image53.png");
+  background:  linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)), url("./assets/image53.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 350px;
   width: 100vw;
   height: 100vh;
   background-size: cover;
   overflow: hidden;
   text-align: left;
-  padding: 3em 5em;
+  padding: 45px 23px;
 }
 
 .hero > p {
-  font-size: 1.5em;
+  line-height: 24px;
+  font-size: 1.1rem;
+}
+
+.hero > h1 {
+  font-size: 2.4rem;
+  line-height: 42px;
 }
 
 .search-van-btn {
@@ -66,6 +94,7 @@
   text-align: center;
   height: 3em;
   margin-top: 4em;
+  font-weight: bold;
 }
 
 /* About page */
@@ -85,27 +114,39 @@
   background-color: #FFF7ED;
   color: #161616;
   height: 100vh;
-  margin: 0;
   padding: 0 2em;
-  gap: 2em;
 }
 
-.about-page-content > h2 {
-  margin-top: 0;
-  padding-top: 2em;
+.about-page-content {
+  padding-inline: 23px;
+  color: #161616;
 }
 
-.about-page-cta-container {
-  width: 100%;
+.about-page-content h1 {
+  line-height: 38px;
+}
+
+.about-page-content p {
+  line-height: 22px;
+}
+
+.about-page-cta {
   background-color: #FFCC8D;
-  padding: 3em;
+  color: #161616;
+  padding-inline: 32px;
+  padding-bottom: 32px;
+  margin-inline: 27px;
+  border-radius: 5px;
+  margin-top: 30px;
 }
 
-.about-page-cta-container > button {
-  background-color: #000000;
-  margin-top: 2em;
-}
-
-.about-page-cta-container > h2 {
+.about-page-cta h2 {
   margin: 0;
+  padding-block: 37px;
+}
+
+.about-page-cta .link-button {
+  background-color: #161616;
+  color: white;
+  border-radius: 10px;
 }
