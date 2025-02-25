@@ -1,12 +1,10 @@
 import React from "react";
-import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 
 export default function About() {
     return (
         <>
-            <Navbar />
-            <div className="about-page-picture">
+             <div className="about-page-picture">
                 <img src="src/assets/image54.png" alt="" />
             </div>
             <div className="about-page-content">

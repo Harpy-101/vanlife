@@ -6,6 +6,7 @@ export default function Navbar() {
         <div className="nav-container">
             <Link to="/" id="vanlife-link">#VANLIFE</Link>
             <div className="links-container">
+                <Link to="/host">Host</Link>
                 <Link to="/about">About</Link>
                 <Link to="/vans">Vans</Link>
             </div>

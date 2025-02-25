@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
-import Navbar from "../Navbar"
-import VanCard from "../VanCard"
+import { Link } from "react-router-dom"
+import Navbar from "../../components/Navbar"
+import VanCard from "../../components/VanCard"
 
 export default function Vans() {
     const [allVans, setAllVnans] = useState([])
@@ -15,20 +16,23 @@ export default function Vans() {
 
     function renderCards() {
         const arr = allVans.map((van, index) => {
-            return <VanCard 
-                key={van.id || index}
-                imageUrl={van.imageUrl}
-                name={van.name}
-                price={van.price}
-                type={van.type}    
-            />
+            return (
+            <Link to={`/vans/${van.id}`}>
+                <VanCard 
+                    key={van.id || index}
+                    imageUrl={van.imageUrl}
+                    name={van.name}
+                    price={van.price}
+                    type={van.type}    
+                />
+            </Link>
+        )
         })
         return arr
     }
 
     return(
         <>
-            <Navbar />
             <h1>Explore our van options</h1>
             <h2>[Add the filter section]</h2>
             <div className="vans-grid">
