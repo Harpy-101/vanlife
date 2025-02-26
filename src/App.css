@@ -47,7 +47,7 @@ body {
   text-decoration: none;
 }
 
-.nav-container a:hover, .host-layout-container a:hover {
+.nav-container a:hover, .host-layout-container a:hover { 
   color: #161616;
   text-decoration: underline;
 }
@@ -58,8 +58,14 @@ body {
   font-weight: bold;
 }
 
-.links-container > a{
+.links-container > a {
   color: #4D4D4D;
+}
+
+.active-link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #161616;
 }
 
 /* Home page */
@@ -259,4 +265,137 @@ body {
 
 .host-layout-container > a {
   color: #4D4D4D;
+}
+
+/* HostVans */
+
+.host-van-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+
+.host-van-element {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  margin: 0 1em;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+}
+
+.host-van-element > a {
+  text-decoration: none;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  margin-left: 1em;
+}
+
+.host-van-element > a > img {
+  height: 70px;
+  border-radius: 5px;
+}
+
+.host-van-info {
+  margin-left: 15px;
+  text-align: left;
+}
+
+.host-van-info > h2, .host-van-info > p {
+  margin: 0;
+  padding: 0;
+}
+
+.host-van-info > h2 {
+  font-size: 1em;
+}
+
+/* HostVansLayout */
+
+.host-vans-layout-container {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  color: #4D4D4D;
+  margin: 1em 0;
+}
+
+.host-vans-layout-container > a {
+  text-decoration: none;
+}
+
+.host-vans-layout-container > a:hover { 
+  color: #161616;
+  text-decoration: underline;
+}
+
+.host-vans-layout-container > a {
+  color: #4D4D4D;
+}
+
+/* HostVansDetalis */
+
+.host-van-details-container {
+  margin: 1.5em 1em;
+  text-align: left;
+}
+
+.host-van-details-container > a {
+  color:#4D4D4D;
+}
+
+.host-van-details-tile-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  padding: 1em;
+  margin: 1em 0;
+  height: 100vh;
+}
+
+.host-van-details-tile-container > p {
+  margin: 8px 0;
+  line-height: 22px;
+}
+
+.host-van-details-tile-container > p > span {
+  font-weight: bold;
+}
+
+.host-van-tile-info-flex-container {
+  display: flex;
+  flex-direction: columns;
+  align-items: center;
+  gap: 10px
+}
+
+.host-van-tile-info-flex-container > img {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.host-van-info-box {
+  padding: 20px;
+}
+
+.host-van-info-box > h1, .host-van-info-box > h2 , .host-van-info-box > h4{
+  margin: 0;
+}
+
+.host-van-info-box > h1 {
+  font-size: 1.5rem;
+}
+
+.host-van-info-box > h2 {
+  font-size: 1.2rem;
+}
+
+.host-van-info-box > h2 > span {
+  font-size: 1rem;
+}
+
+.host-van-info-box > h4 {
+  font-size: 0.9rem;
 }
