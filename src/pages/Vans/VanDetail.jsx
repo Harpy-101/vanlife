@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 
 export default function VanDetail() {
     const params = useParams()
-    console.log(params)
+    const location = useLocation()
 
     const [vanData, setVanData] = useState(null)
     useEffect(() => {
         fetch(`/api/vans/${params.id}`)
             .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setVanData(data.vans)
-            })
+            .then(data => setVanData(data.vans))
     }, [params.id])
 
     return (
         <div className="van-data-container">
+            <Link 
+                to={`..${location.state ?  location.state.search : ""}`}
+                relative="path">  
+                    <FontAwesomeIcon icon={faArrowLeft}/> {`Back to ${(location.state && location.state.type) ? location.state.type : "all"} vans`}
+            </Link>   
             {vanData ? (
                 <div className="van-data">
                     <img src={vanData.imageUrl} alt="" />

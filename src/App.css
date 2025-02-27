@@ -168,6 +168,54 @@ body {
   justify-content: space-around;
 }
 
+.van-list-filter-btn-container {
+  display: flex;
+  margin: 1em;
+  gap: 10px;
+}
+
+.van-list-filter-btn-container > a {
+  color: #4D4D4D;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.van-type-link {
+  background-color: #FFEAD0;
+}
+
+.van-type-link:hover {
+  color: #FFEAD0;
+}
+
+.van-type-link:focus {
+  outline: none;
+}
+
+.van-type-link.simple:hover, .van-type-link.simple.selected {
+  background-color: #E17654;
+  color: #FFF7ED;
+}
+
+.van-type-link.rugged:hover, .van-type-link.rugged.selected {
+  background-color: #115E59;
+  color: #FFF7ED;
+}
+
+.van-type-link.luxury:hover, .van-type-link.luxury.selected {
+  background-color: #161616;
+  color: #FFF7ED;
+}
+
+.van-type-link-link.selected {
+color: #FFEAD0;
+}
+
+.van-type-clear-filter {
+  text-decoration: underline;
+  margin-left: 20px;
+}
+
 /* VanCard */
 
 .van-card {
@@ -211,9 +259,9 @@ body {
   /* background-color: #E17654; */
   display: inline-flex;
   padding: 0.25em 0.5em;
-  margin: 10px;
   border-radius: 5px;
   font-weight: normal;
+  margin: 10px 0;
 }
 
 .van-card-type-simple-selected {
@@ -232,10 +280,18 @@ body {
 
 .van-data-container {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1.5em;
+}
+
+.van-data-container > a {
+  color: #4D4D4D;
+  text-align: left;
+  margin: 0.5em 0;
 }
 
 .van-data {
-  padding: 0 20px;
   text-align: left;
 }
 
@@ -247,6 +303,15 @@ body {
 .van-data > button {
   background-color:#FF8C38;
   width: 100%;
+  margin: 1em 0;
+}
+
+.van-data > h2 {
+  margin: 0.4em 0;
+} 
+
+.van-data > h3 {
+  margin: 0.4em 0;
 }
 
 .van-data > p {
@@ -398,4 +463,22 @@ body {
 
 .host-van-info-box > h4 {
   font-size: 0.9rem;
+}
+
+/* NotFound */
+
+.not-found-info-container {
+  margin: 2em 1em;
+  text-align: left;
+}
+
+.return-to-home-link {
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 0.7em 1em;
+  border-radius: 5px;
+  color: #FFFFFF;
+  background-color: #161616;
+  
 }
