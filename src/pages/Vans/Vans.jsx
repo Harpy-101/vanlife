@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import VanCard from "../../components/VanCard"
+import { getVans } from "../../api"
 
 export default function Vans() {
     const [searchParams, setSearchParams] = useSearchParams([])
     const typeFilter = searchParams.get("type")
 
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
     const [allVans, setAllVnans] = useState([])
     useEffect(() => {
-        fetch("/api/vans")
-            .then((res) => res.json())
-            .then(data => setAllVnans(data.vans))    
+            async function loadVans() {
+                setLoading(true)
+                try {
+                    const data = await getVans()
+                    setAllVnans(data)
+                } catch(err) {
+                    setError(err)
+                } finally {
+                    setLoading(false)
+                }
+            }
+            loadVans()
     }, [])
 
     function renderCards() {
@@ -28,6 +40,14 @@ export default function Vans() {
         )
         })
         return arr
+    }
+
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
+
+    if (error) {
+        return <h1>There was an error: {error.message}</h1>
     }
 
     return(

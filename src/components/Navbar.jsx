@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
     return(
@@ -21,6 +23,12 @@ export default function Navbar() {
                     className={({isActive}) => isActive ? "active-link" : null}>
                         Vans
                 </NavLink>
+                <Link to="login" className="login-link">
+                    <FontAwesomeIcon icon={faUser}/>
+                </Link>
+                <button onClick={() => localStorage.removeItem("loggedin")}>
+                    X
+                </button>
             </div>
         </div>
     )

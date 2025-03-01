@@ -2,17 +2,38 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
+import { getVans } from "../../api";
 
 export default function VanDetail() {
     const params = useParams()
     const location = useLocation()
 
     const [vanData, setVanData] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+
     useEffect(() => {
-        fetch(`/api/vans/${params.id}`)
-            .then(res => res.json())
-            .then(data => setVanData(data.vans))
+        async function loadVans() {
+            setLoading(true)
+            try {
+                const data = await getVans(params.id)
+                setVanData(data)
+            } catch(err) {
+                setError(err)
+            } finally {
+                setLoading(false)
+            }
+        }
+        loadVans()
     }, [params.id])
+
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
+    
+    if (error) {
+        return <h1>There was an error: {error.message}</h1>
+    }
 
     return (
         <div className="van-data-container">
