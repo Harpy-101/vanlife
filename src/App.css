@@ -541,3 +541,50 @@ color: #FFEAD0;
   color: white;
   font-family: "Inter", sans-serif;
 }
+
+/* Income */
+
+.host-income-container { 
+  margin: 0 1em;
+  text-align: left;
+}
+
+.host-income-summary-text {
+  margin: 1em 0em;
+}
+
+.host-income-summary-text > h1 { 
+  margin: 0;
+}
+
+.underline-bold { 
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.bar-chart-container {
+  height: 350px;
+  width: 100%;
+}
+
+.last-month-income {
+  font-size: 2.5rem;
+}
+
+.host-transactions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.host-transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 0 1em;
+}
+
+.last-transactions {
+  padding-bottom: 1em;
+}
