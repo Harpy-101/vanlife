@@ -64,6 +64,17 @@ export default function Reviews() {
 
     }
 
+    function hostAverageRating() {
+        const reviewsSummaryArr = reviewSumm()
+        const totalReviews = hostReviewsData.reviews?.length || 1 
+        let weightedSum = 0
+
+        for (let i = 0; i < reviewsSummaryArr.length; i++) {
+            weightedSum += reviewsSummaryArr[i] * (i + 1) 
+        }
+        return (weightedSum / totalReviews).toFixed(1)
+    }
+
     function renderStars(amount) {
         let arr = []
         for (let i = 0; i < amount; i++) {
@@ -94,7 +105,12 @@ export default function Reviews() {
                 <h1>Your reviews</h1>
                 <p className="greyed-out-text">last <span className="underline-bold">30 days</span></p>
             </div>
-                {hostReviewsData ? renderReviewsSummChart(): <h1>No data</h1>}
+            <div className="host-average-rating">
+                <h2>{hostAverageRating()}</h2>
+                <p><span className="star"><FontAwesomeIcon icon={faStar}/></span></p>
+                <p>overall rating</p>
+            </div>
+            {hostReviewsData ? renderReviewsSummChart(): <h1>No data</h1>}
             <div className="costumer-reviews-container">
                 <h3>Reviews ({hostReviewsData.reviews?.length})</h3>
                 {hostReviewsData ? renderReviewsArr() : <h1>No data</h1>}

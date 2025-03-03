@@ -601,6 +601,10 @@ color: #FFEAD0;
   gap: 15px;
 }
 
+.host-income-text > h1 {
+  margin-bottom: 0;
+}
+
 .greyed-out-text {
   color: #8C8C8C;
 }
@@ -659,4 +663,14 @@ color: #FFEAD0;
 .costumer-reviews-container {
   text-align: left;
   margin-top: 2em;
+}
+
+.host-average-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.host-average-rating > h2, .host-average-rating > p{
+  margin: 0.4em 0 ;
 }
