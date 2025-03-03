@@ -588,3 +588,75 @@ color: #FFEAD0;
 .last-transactions {
   padding-bottom: 1em;
 }
+
+/* Reviews */
+
+.reviews-container { 
+  margin: 0 1em;
+}
+
+.host-income-text {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+}
+
+.greyed-out-text {
+  color: #8C8C8C;
+}
+
+.review-bar {
+  width: 100%;
+}
+
+.review-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px; 
+  width: 100%;
+}
+
+.review-row > p {
+  width: 45px;
+  margin: 5px 0;
+}
+
+.progress-bar {
+  flex: 1;
+  background: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 10px;
+}
+
+.review-container {
+  text-align: left;
+}
+
+.review-container > p{
+  margin: 0.5em;
+}
+
+.reviewer-name { 
+  font-weight: bold;
+}
+
+.review-date {
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.review-container > hr {
+  color: C7C7C7;
+  opacity: 20%;
+}
+
+.star {
+  color: #FF8C38;
+}
+
+.costumer-reviews-container {
+  text-align: left;
+  margin-top: 2em;
+}

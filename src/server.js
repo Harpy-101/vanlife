@@ -34,7 +34,9 @@ createServer({
                     { id: "1", amount: 200, date: "2025-02-28", vanId: "1" },
                     { id: "2", amount: 150, date: "2025-02-26", vanId: "2" },
                     { id: "3", amount: 100, date: "2025-02-24", vanId: "6" }
-        ]})
+                ]
+            }
+        )
          server.create("income", { 
                 id: "2", 
                 hostId: "123", 
@@ -44,7 +46,9 @@ createServer({
                     { id: "1", amount: 500, date: "2025-02-28", vanId: "1" },
                     { id: "2", amount: 100, date: "2025-02-26", vanId: "2" },
                     { id: "3", amount: 50, date: "2025-02-24", vanId: "6" }
-        ]})
+                ]
+            }
+        )
          server.create("income", { 
                 id: "3", 
                 hostId: "123", 
@@ -54,11 +58,27 @@ createServer({
                     { id: "1", amount: 1000, date: "2025-02-28", vanId: "1" },
                     { id: "2", amount: 100, date: "2025-02-26", vanId: "2" },
                     { id: "3", amount: 500, date: "2025-02-24", vanId: "6" }
-        ]})
+                ]
+            }
+        
+        )
 
-
-        server.create("review", { id: "1", hostId: "123", rating: 4.5, comment: "Great experience!", reviewer: "Alice" })
-        server.create("review", { id: "2", hostId: "123", rating: 5, comment: "Loved the van!", reviewer: "Charlie" })
+        server.create("review", {
+            id: "1", 
+            hostId: "123", 
+            rating: 4, 
+            comment: "Great experience!", 
+            reviewer: "Alice", 
+            date: "2025-02-28"}
+        )
+        server.create("review", { 
+            id: "2", 
+            hostId: "123", 
+            rating: 5, 
+            comment: "Loved the van!", 
+            reviewer: "Charlie", 
+            date: "2025-02-26"}
+        )
     },
 
     routes() {
@@ -92,7 +112,7 @@ createServer({
         })
 
         this.get("/host/reviews", (schema) => {
-            schema.reviews.where({ hostId: "123" })
+            return schema.reviews.where({ hostId: "123" })
         })
         
         this.post("/login", (schema, request) => {

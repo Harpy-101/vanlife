@@ -48,12 +48,27 @@ export async function getHostIncome() {
     // console.log("Raw response:", res)
     if (!res.ok) {
         throw {
-            message: "Could'nt fetch host income",
+            message: "Couldn't fetch host income",
             statusText: res.statusText,
             status: res.status
         }
     }
     const data = await res.json()
     // console.log("Pased data:", data)
+    return data
+}
+
+export async function getHostReviews() {
+    const res = await fetch("/api/host/reviews")
+    // console.log("Raw response:", res)
+    if (!res.ok) {
+        throw {
+            message: "Couldn't fetch host reviews", 
+            statusText: res.statusText, 
+            status: res.status
+        }
+    }
+    const data = await res.json()
+    console.log("Parsed data:", data)
     return data
 }
