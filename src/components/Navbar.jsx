@@ -1,9 +1,29 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
+    // const isLoggedIn = localStorage.getItem("loggedin")
+
+    const [isLoggedIn, setIsLoggedIn] = useState(() => !!localStorage.getItem("loggedin"));
+
+    useEffect(() => {
+        const handleStorageChange = () => {
+            setIsLoggedIn(!!localStorage.getItem("loggedin"));
+        };
+
+        window.addEventListener("storage", handleStorageChange);
+        return () => window.removeEventListener("storage", handleStorageChange);
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("loggedin");
+        setIsLoggedIn(false);
+        window.dispatchEvent(new Event("storage"))
+        window.location.reload()
+    };
+    
     return(
         <div className="nav-container">
             <Link to="/" id="vanlife-link">#VANLIFE</Link>
@@ -26,11 +46,11 @@ export default function Navbar() {
                 <Link to="login" className="login-link">
                     <FontAwesomeIcon icon={faUser}/>
                 </Link>
-                <button
+                {isLoggedIn && <button
                     className="logout-btn" 
-                    onClick={() => localStorage.removeItem("loggedin")}>
+                    onClick={handleLogout}>
                     X
-                </button>
+                </button>}
             </div>
         </div>
     )

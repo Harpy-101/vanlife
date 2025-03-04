@@ -18,6 +18,7 @@ export default function Login() {
             .then(data => {
                 setError(null)
                 localStorage.setItem("loggedin", true)
+                window.dispatchEvent(new Event("storage"))
                 navigate(from, {replace: true})
             })
             .catch (err => {
