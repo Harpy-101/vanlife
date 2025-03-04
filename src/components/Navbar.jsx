@@ -26,7 +26,9 @@ export default function Navbar() {
                 <Link to="login" className="login-link">
                     <FontAwesomeIcon icon={faUser}/>
                 </Link>
-                <button onClick={() => localStorage.removeItem("loggedin")}>
+                <button
+                    className="logout-btn" 
+                    onClick={() => localStorage.removeItem("loggedin")}>
                     X
                 </button>
             </div>

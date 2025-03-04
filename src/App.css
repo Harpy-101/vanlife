@@ -68,6 +68,10 @@ body {
   color: #161616;
 }
 
+.logout-btn {
+  padding: 0.35em 0.7em;
+}
+
 /* Home page */
 
 .hero {
@@ -569,6 +573,7 @@ color: #FFEAD0;
 
 .last-month-income {
   font-size: 2.5rem;
+  margin: 0.25em 0;
 }
 
 .host-transactions-container {
@@ -673,4 +678,49 @@ color: #FFEAD0;
 
 .host-average-rating > h2, .host-average-rating > p{
   margin: 0.4em 0 ;
+}
+
+/* Dashboard */
+
+.dashboard-income-container {
+  background-color: #FFEAD0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-income-text {
+  text-align: left;
+}
+
+.dashboard-income-text > h1 {
+  margin-bottom: 0.25em 0;
+}
+
+.dashboard-reviews-container { 
+  background-color: #FFDDB2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-reviews-container-text {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.dashboard-income-container, .dashboard-reviews-container {
+  padding: 0 1em;
+}
+
+.dashboard-host-van-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1em;
+}
+
+.dashboard-income-container > a, .dashboard-reviews-container > a, .dashboard-host-van-text > a {
+  color: #161616;
 }
