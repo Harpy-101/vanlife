@@ -3,20 +3,25 @@ import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import HostVansLayout from "./HostVansLayout"
+import { useHostData } from "../../components/HostContext"
 
 export default function HostVansDetalis() {
     const params = useParams()
-
     const [vanData, setVanData] = useState([])
+    const [loading, setLoading] = useState(true)
+    const { fetchVans } = useHostData()
 
     useEffect(() => {
-        fetch(`/api/host/vans/${params.id}`)
-            .then(res => res.json())
-            .then(data => {
-                setVanData(data.vans)
-            })
+        async function getVans() {
+            setLoading(true)
+            const data = await fetchVans(params.id)
+            setVanData(data)
+            setLoading(false)
+        }        
+        getVans()
     }, [params.id])
 
+    if (loading) return <p>Loading...</p>
 
     return (
         <div className="host-van-details-container">

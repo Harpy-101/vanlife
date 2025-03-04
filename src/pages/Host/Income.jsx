@@ -1,28 +1,9 @@
-import React, { PureComponent, useState, useEffect } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { getHostIncome } from '../../api';
+import { useHostData } from '../../components/HostContext';
 
 export default function Income() {
-    const [hostIncome, setHostIncome] = useState([])
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(false)
-    const [lastMonthIncome, setLastMonthIncome] = useState() 
-
-    useEffect(() => {
-        async function loadIncome() {
-            setLoading(true)
-            try {
-                const data = await getHostIncome()
-                setLastMonthIncome(data.incomes[data.incomes.length-1])
-                setHostIncome(data || null);
-            } catch (err) {
-                setError(err)
-            } finally {
-                setLoading(false)
-            }
-        }
-        loadIncome()
-    }, [])
+    const {income: hostIncome, loading, error} = useHostData()
+    const lastMonthIncome = hostIncome?.incomes[hostIncome.incomes.length-1]
 
     function formatDate(dateString) {
         const date = new Date(dateString)

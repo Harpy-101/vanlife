@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom"
+import { HostProvider } from "../../components/HostContext"
 
 export default function HostLayout() {
     const activeStyle = {
@@ -31,7 +32,9 @@ export default function HostLayout() {
                         Reviews
                 </NavLink>
             </div>
-            <Outlet />
+            <HostProvider>
+                <Outlet />
+            </HostProvider>
         </>
 
     )

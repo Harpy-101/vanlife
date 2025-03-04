@@ -1,27 +1,9 @@
-import { useEffect, useState } from "react"
-import { getHostReviews } from "../../api"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
+import { useHostData } from "../../components/HostContext"
 
 export default function Reviews() {
-    const [hostReviewsData, setHostReviewsData] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
-    
-    useEffect(() => {
-        async function fetchHostReviews() {
-            setLoading(true)
-            try {
-                const data = await getHostReviews()
-                setHostReviewsData(data || null)
-            } catch (err) {
-                setError(err)
-            } finally {
-                setLoading(false)
-            }
-        }
-        fetchHostReviews()
-    }, [])
+    const {reviews: hostReviewsData, loading, error} = useHostData()
 
     function formatDate(dateString) {
         const date = new Date(dateString)

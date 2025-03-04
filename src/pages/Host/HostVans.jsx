@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { useHostData } from "../../components/HostContext"
 
 export default function HostVans() {
     const [hostVans, setHostVans] = useState([])
+    const [loading, setLoading] = useState(true)
+    const { fetchVans } = useHostData()
     
     useEffect(() => {
-        fetch("/api/host/vans")
-            .then(res => res.json())
-            .then(data => {
-                setHostVans(data.vans)
-                console.log(data.vans)
-            })
+        async function loadVans() {
+            setLoading(true)
+            const data = await fetchVans()
+            setHostVans(data)
+            setLoading(false)
+        }
+        loadVans()
     }, [])
 
     const hostVansList = hostVans.map(van => {
@@ -25,6 +29,8 @@ export default function HostVans() {
         </div>
     })
     
+    if (loading) return <p>Loading...</p>
+
     return (
         <div className="host-vans-cotainer">
             <h1>Your listed vans</h1>
