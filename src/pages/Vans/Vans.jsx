@@ -51,7 +51,7 @@ export default function Vans() {
     }
 
     return(
-        <>
+        <div className="vans-container">
             <h1>Explore our van options</h1>
             <div className="van-list-filter-btn-container">
                 <Link className={`van-type-link simple ${typeFilter === "simple" ? "selected" : ""}`} to="?type=simple">Simple</Link>
@@ -62,6 +62,6 @@ export default function Vans() {
             <div className="vans-grid">
                 {renderCards()}
             </div>
-        </>
+        </div>
     )
 }

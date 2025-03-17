@@ -45,11 +45,13 @@ export default function VanDetail() {
             {vanData ? (
                 <div className="van-data">
                     <img src={vanData.imageUrl} alt="" />
-                    <h4 className={`van-card-type van-card-type-${vanData.type}-selected`}>{vanData.type? vanData.type.charAt(0).toUpperCase() + vanData.type.slice(1) : "Unkown"}</h4>
-                    <h2>{vanData.name}</h2>
-                    <h3>${vanData.price}/day</h3>
-                    <p>{vanData.description}</p>
-                    <button>Rent this van</button>
+                    <div className="van-data-flex-container">
+                        <h4 className={`van-card-type van-card-type-${vanData.type}-selected`}>{vanData.type? vanData.type.charAt(0).toUpperCase() + vanData.type.slice(1) : "Unkown"}</h4>
+                        <h2>{vanData.name}</h2>
+                        <h3>${vanData.price}/day</h3>
+                        <p>{vanData.description}</p>
+                        <button>Rent this van</button>
+                    </div>
                 </div>
             ) : <h2>Loading...</h2>}
         </div>

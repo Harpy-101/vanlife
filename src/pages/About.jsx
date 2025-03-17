@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function About() {
     return (
-        <>
+        <div className="about-page-container">
              <div className="about-page-picture">
                 <img src="src/assets/image54.png" alt="" />
             </div>
@@ -16,6 +16,6 @@ export default function About() {
                     <Link className="link-button" to="/vans"><button>Explore our vans</button></Link>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
