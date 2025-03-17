@@ -23,12 +23,61 @@ createServer({
         server.create("van", { id: "5", name: "The Cruiser", price: 120, description: "The Cruiser is a van for those who love to travel in comfort and luxury. With its many windows, spacious interior and ample storage space, the Cruiser offers a beautiful view wherever you go.", imageUrl: "https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png", type: "luxury", hostId: "789" })
         server.create("van", { id: "6", name: "Green Wonder", price: 70, description: "With this van, you can take your travel life to the next level. The Green Wonder is a sustainable vehicle that's perfect for people who are looking for a stylish, eco-friendly mode of transport that can go anywhere.", imageUrl: "https://assets.scrimba.com/advanced-react/react-router/green-wonder.png", type: "rugged", hostId: "123" })
         
-        server.create("user", { id: "123", email: "b@b.com", password: "p123", name: "Bob" })
+        server.create("user", { id: "123", email: "d@i.com", password: "admin", name: "Bob" })
         
+        server.create("income", {
+            id: "1",
+            hostId: "123",
+            month: "Feb",
+            amount: 2200,
+            recentTransactions: [
+                { id: "1", amount: 900, date: "2025-02-28", vanId: "1" },
+                { id: "2", amount: 400, date: "2025-02-25", vanId: "3" },
+                { id: "3", amount: 500, date: "2025-02-21", vanId: "4" },
+                { id: "4", amount: 400, date: "2025-02-18", vanId: "2" }
+            ]
+        });
+
+        server.create("income", {
+            id: "2",
+            hostId: "123",
+            month: "Mar",
+            amount: 1800,
+            recentTransactions: [
+                { id: "1", amount: 1200, date: "2025-03-05", vanId: "2" },
+                { id: "2", amount: 300, date: "2025-03-02", vanId: "5" },
+                { id: "3", amount: 300, date: "2025-03-01", vanId: "6" }
+            ]
+        });
+
+        server.create("income", {
+            id: "3",
+            hostId: "123",
+            month: "Apr",
+            amount: 1600,
+            recentTransactions: [
+                { id: "1", amount: 1000, date: "2025-02-28", vanId: "1" },
+                { id: "2", amount: 100, date: "2025-02-26", vanId: "2" },
+                { id: "3", amount: 500, date: "2025-02-24", vanId: "6" }
+            ]
+        });
+
+        server.create("income", {
+            id: "4",
+            hostId: "123",
+            month: "May",
+            amount: 2500,
+            recentTransactions: [
+                { id: "1", amount: 800, date: "2025-01-30", vanId: "3" },
+                { id: "2", amount: 1200, date: "2025-01-20", vanId: "5" },
+                { id: "3", amount: 500, date: "2025-01-10", vanId: "1" }
+            ]
+        });
+
         server.create("income", { 
-                id: "1", 
+                id: "5", 
                 hostId: "123", 
-                month: "Jan", 
+                month: "Jun", 
                 amount: 450,  
                 recentTransactions: [
                     { id: "1", amount: 200, date: "2025-02-28", vanId: "1" },
@@ -37,10 +86,10 @@ createServer({
                 ]
             }
         )
-         server.create("income", { 
-                id: "2", 
+        server.create("income", { 
+                id: "6", 
                 hostId: "123", 
-                month: "Feb", 
+                month: "Jul", 
                 amount: 650,  
                 recentTransactions: [
                     { id: "1", amount: 500, date: "2025-02-28", vanId: "1" },
@@ -49,36 +98,69 @@ createServer({
                 ]
             }
         )
-         server.create("income", { 
-                id: "3", 
-                hostId: "123", 
-                month: "Mar", 
-                amount: 1600,  
-                recentTransactions: [
-                    { id: "1", amount: 1000, date: "2025-02-28", vanId: "1" },
-                    { id: "2", amount: 100, date: "2025-02-26", vanId: "2" },
-                    { id: "3", amount: 500, date: "2025-02-24", vanId: "6" }
-                ]
-            }
-        
-        )
 
         server.create("review", {
-            id: "1", 
-            hostId: "123", 
-            rating: 4, 
-            comment: "Great experience!", 
-            reviewer: "Alice", 
-            date: "2025-02-28"}
-        )
-        server.create("review", { 
-            id: "2", 
-            hostId: "123", 
-            rating: 5, 
-            comment: "Loved the van!", 
-            reviewer: "Charlie", 
-            date: "2025-02-26"}
-        )
+            id: "1",
+            hostId: "123",
+            rating: 5,
+            comment: "Fantastic van! Super clean and well-equipped. We had an amazing road trip with no issues. Highly recommend!",
+            reviewer: "Alice",
+            date: "2025-02-28"
+        });
+
+        server.create("review", {
+            id: "2",
+            hostId: "123",
+            rating: 4,
+            comment: "Great experience overall. The van drove smoothly, but the mattress could be a bit more comfortable.",
+            reviewer: "James",
+            date: "2025-02-22"
+        });
+
+        server.create("review", {
+            id: "3",
+            hostId: "123",
+            rating: 3,
+            comment: "Decent van for the price, but there was a slight issue with the heater. The host was responsive, though!",
+            reviewer: "Samantha",
+            date: "2025-02-18"
+        });
+
+        server.create("review", {
+            id: "4",
+            hostId: "123",
+            rating: 5,
+            comment: "The best rental experience I've had! The van was in perfect condition, and the host provided great travel tips.",
+            reviewer: "Michael",
+            date: "2025-02-14"
+        });
+
+        server.create("review", {
+            id: "5",
+            hostId: "123",
+            rating: 2,
+            comment: "The van was okay, but the cleanliness was not up to standard. Found some leftover trash from previous renters.",
+            reviewer: "Laura",
+            date: "2025-02-10"
+        });
+
+
+        // server.create("review", {
+        //     id: "1", 
+        //     hostId: "123", 
+        //     rating: 4, 
+        //     comment: "Great experience!", 
+        //     reviewer: "Alice", 
+        //     date: "2025-02-28"}
+        // )
+        // server.create("review", { 
+        //     id: "2", 
+        //     hostId: "123", 
+        //     rating: 5, 
+        //     comment: "Loved the van!", 
+        //     reviewer: "Charlie", 
+        //     date: "2025-02-26"}
+        // )
     },
 
     routes() {
