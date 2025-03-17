@@ -943,6 +943,7 @@ color: #FFEAD0;
 .costumer-reviews-container {
   text-align: left;
   margin-top: 2em;
+  padding-bottom: 1em;
 }
 
 .host-average-rating {
