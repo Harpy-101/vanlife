@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import abouImg from "../assets/image54.png";
 
 export default function About() {
     return (
         <div className="about-page-container">
              <div className="about-page-picture">
-                <img src="src/assets/image54.png" alt="" />
+                <img src={abouImg} alt="" />
             </div>
             <div className="about-page-content">
                 <h1>Don’t squeeze in a sedan when you could relax in a van.</h1>
